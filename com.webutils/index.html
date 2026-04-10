@@ -4,28 +4,87 @@
   <title>Web Utils</title>
   <style>
     body {
-      font-family: Arial;
-      background: #111;
+      margin: 0;
+      font-family: Arial, sans-serif;
       color: white;
       text-align: center;
-      padding-top: 60px;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      /* Smooth animated gradient (clean, not overkill) */
+      background: linear-gradient(270deg, #0f172a, #1e293b, #1d4ed8);
+      background-size: 600% 600%;
+      animation: gradientMove 12s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      opacity: 0.75;
+      margin-bottom: 40px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     button {
-      font-size: 18px;
-      padding: 15px 25px;
-      margin: 10px;
+      font-size: 16px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
+      background: #2563eb;
+      color: white;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    button.secondary {
+      background: #374151;
+    }
+
+    button.secondary:hover {
+      background: #4b5563;
     }
   </style>
 </head>
 
 <body>
-  <h1>🛠️ My Web Utils</h1>
+  <h1>🛠️ Web Utils</h1>
+  <p>Simple tools, all in one place</p>
 
-  <button onclick="window.open('/linux', '_blank')">
-    Launch Linux 🐧
-  </button>
+  <div class="buttons">
+    <button onclick="window.open('/linux', '_blank')">
+      Launch Linux 🐧
+    </button>
 
+    <button class="secondary" onclick="alert('Coming soon')">
+      Utilities
+    </button>
+
+    <button class="secondary" onclick="alert('Coming soon')">
+      Notes
+    </button>
+  </div>
 </body>
 </html>
+
